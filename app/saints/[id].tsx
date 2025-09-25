@@ -4,7 +4,8 @@ import { ThemedView } from "@/components/themed-view";
 import getImageId from "@/utils/getImageId";
 import { Image } from "expo-image";
 import { Link, useLocalSearchParams } from "expo-router";
-import { FlatList, StyleSheet } from "react-native";
+import { StyleSheet } from "react-native";
+import YoutubePlayer from "react-native-youtube-iframe";
 import saints from "../../data/saints/content.json";
 
 export default function SaintScreen() {
@@ -43,16 +44,21 @@ export default function SaintScreen() {
             Legacy
           </ThemedText>
           <ThemedText>{saint.legacy}</ThemedText>
+          {/* !TODO make height responsive */}
+          <YoutubePlayer height={200} videoId={saint["yt-embbed"]} />
         </ThemedView>
         <ThemedView>
           <ThemedText type="title" style={styles.subtitle}>
             Notable works
           </ThemedText>
-          <FlatList
-            data={saint["notable-works"]}
-            renderItem={({ item }) => <ThemedText>- {item}</ThemedText>}
-          />
+          {/* here normal text is used instead of a FlatList because I get an error (a nested srollable element) */}
+          <ThemedView>
+            {saint["notable-works"].map((item) => (
+              <ThemedText key={item}>- {item}</ThemedText>
+            ))}
+          </ThemedView>
         </ThemedView>
+
         <Link style={{ color: "white" }} href={"/"}>
           Back to menu
         </Link>
