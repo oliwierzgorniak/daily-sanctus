@@ -1,4 +1,9 @@
 import {
+  Lora_400Regular,
+  Lora_500Medium_Italic,
+  useFonts,
+} from "@expo-google-fonts/lora";
+import {
   DarkTheme,
   DefaultTheme,
   ThemeProvider,
@@ -15,6 +20,10 @@ export const unstable_settings = {
 
 export default function RootLayout() {
   const colorScheme = useColorScheme();
+  const [loaded, error] = useFonts({
+    Lora_400Regular,
+    Lora_500Medium_Italic,
+  });
 
   return (
     <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
