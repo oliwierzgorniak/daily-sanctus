@@ -1,20 +1,45 @@
 import { Colors } from "@/constants/theme";
 import { Image } from "expo-image";
 import { Link, RelativePathString } from "expo-router";
+import { useEffect, useState } from "react";
 import { StyleSheet, View } from "react-native";
 import { ThemedText } from "./themed-text";
 
-interface iMyButton {
+type MyButtonTypes = {
   href: RelativePathString;
   text: string;
-}
+  doesOccupyFullSpace: boolean;
+  isSuggestNew?: boolean;
+};
 
-const MyButton = ({ href, text }: iMyButton) => {
+const MyButton = ({
+  href,
+  text,
+  doesOccupyFullSpace = false,
+  isSuggestNew,
+}: MyButtonTypes) => {
   const arrowImg = require("../assets/images/arrow-button.png");
+  const [currentHref, setCurrentHref] = useState<RelativePathString>(href);
+
+  const changeHref = () => {
+    if (isSuggestNew) {
+      const saintId = Math.floor(Math.random() * 8);
+      const newHref = ("./saints/" + saintId) as RelativePathString;
+      setCurrentHref(newHref);
+    }
+  };
+  useEffect(() => {
+    changeHref();
+  }, []);
 
   return (
-    <Link href={href}>
-      <View style={styles.container}>
+    <Link onPress={changeHref} href={currentHref}>
+      <View
+        style={{
+          ...styles.container,
+          width: doesOccupyFullSpace ? "100%" : "auto",
+        }}
+      >
         <ThemedText style={styles.text}>{text}</ThemedText>
         <Image style={styles.image} source={arrowImg} />
       </View>
