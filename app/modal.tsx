@@ -1,14 +1,17 @@
-import { ThemedText } from "@/components/themed-text";
-import { Link } from "expo-router";
-import { StyleSheet, View } from "react-native";
+import MyButton from "@/components/MyButton";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import { Button, StyleSheet, View } from "react-native";
 
 export default function ModalScreen() {
   return (
     <View style={styles.container}>
-      <ThemedText type="title">This is a modal</ThemedText>
-      <Link href="/" dismissTo style={styles.link}>
-        <ThemedText type="link">Go to home screen</ThemedText>
-      </Link>
+      <Button
+        title="Save virtues"
+        onPress={async () => {
+          AsyncStorage.setItem("virtues", '["diligence", "scholarship"]');
+        }}
+      />
+      <MyButton href="../" text="Close" />
     </View>
   );
 }

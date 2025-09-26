@@ -1,7 +1,10 @@
 import MyButton from "@/components/MyButton";
 import { ThemedText } from "@/components/themed-text";
 import { Colors } from "@/constants/theme";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 import { ImageBackground } from "expo-image";
+import { useRouter } from "expo-router";
+import { useEffect } from "react";
 import { StyleSheet, View } from "react-native";
 import {
   SafeAreaProvider,
@@ -10,6 +13,17 @@ import {
 
 export default function HomeScreen() {
   const insets = useSafeAreaInsets();
+  const router = useRouter();
+
+  useEffect(() => {
+    async function handleModal() {
+      const virtues = await AsyncStorage.getItem("virtues");
+      if (virtues === null) {
+        router.push("/modal");
+      }
+    }
+    handleModal();
+  }, []);
 
   return (
     <SafeAreaProvider>
