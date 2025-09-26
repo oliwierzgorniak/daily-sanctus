@@ -1,10 +1,9 @@
 import ParallaxScrollView from "@/components/parallax-scroll-view";
 import { ThemedText } from "@/components/themed-text";
-import { ThemedView } from "@/components/themed-view";
 import getImageId from "@/utils/getImageId";
 import { Image } from "expo-image";
 import { Link, useLocalSearchParams } from "expo-router";
-import { StyleSheet } from "react-native";
+import { StyleSheet, View } from "react-native";
 import YoutubePlayer from "react-native-youtube-iframe";
 import saints from "../../data/saints/content.json";
 
@@ -26,43 +25,43 @@ export default function SaintScreen() {
         />
       }
     >
-      <ThemedView style={{ flex: 1, gap: 30 }}>
-        <ThemedView>
+      <View style={{ flex: 1, gap: 30 }}>
+        <View>
           <ThemedText type="title" style={styles.subtitle}>
             Born
           </ThemedText>
           <ThemedText>{saint.birth}</ThemedText>
-        </ThemedView>
-        <ThemedView>
+        </View>
+        <View>
           <ThemedText type="title" style={styles.subtitle}>
             Quote
           </ThemedText>
           <ThemedText>{saint.quote}</ThemedText>
-        </ThemedView>
-        <ThemedView>
+        </View>
+        <View>
           <ThemedText type="title" style={styles.subtitle}>
             Legacy
           </ThemedText>
           <ThemedText>{saint.legacy}</ThemedText>
           {/* !TODO make height responsive */}
           <YoutubePlayer height={200} videoId={saint["yt-embbed"]} />
-        </ThemedView>
-        <ThemedView>
+        </View>
+        <View>
           <ThemedText type="title" style={styles.subtitle}>
             Notable works
           </ThemedText>
           {/* here normal text is used instead of a FlatList because I get an error (a nested srollable element) */}
-          <ThemedView>
+          <View>
             {saint["notable-works"].map((item) => (
               <ThemedText key={item}>- {item}</ThemedText>
             ))}
-          </ThemedView>
-        </ThemedView>
+          </View>
+        </View>
 
         <Link style={{ color: "white" }} href={"/"}>
           Back to menu
         </Link>
-      </ThemedView>
+      </View>
     </ParallaxScrollView>
   );
 }
