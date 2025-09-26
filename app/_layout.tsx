@@ -10,6 +10,13 @@ import { Stack } from "expo-router";
 import { StatusBar } from "expo-status-bar";
 import "react-native-reanimated";
 
+const sharedOptionsHeader = {
+  headerTintColor: Colors.textRed,
+  headerStyle: {
+    backgroundColor: Colors.headerBackground,
+  },
+};
+
 export default function RootLayout() {
   // !TODO handle font loading?
   const [loaded, error] = useFonts({
@@ -27,14 +34,17 @@ export default function RootLayout() {
           options={{ headerShown: false, title: "Home" }}
         />
         <Stack.Screen
+          name="all"
+          options={{
+            ...sharedOptionsHeader,
+            headerTitle: "All saints",
+          }}
+        />
+        <Stack.Screen
           name="saints/[id]"
           options={{
-            headerShown: true,
+            ...sharedOptionsHeader,
             headerTitle: "",
-            headerTintColor: "#800020",
-            headerStyle: {
-              backgroundColor: "#CBA93A",
-            },
           }}
         />
         <Stack.Screen
@@ -42,7 +52,7 @@ export default function RootLayout() {
           options={{ presentation: "modal", title: "Modal" }}
         />
       </Stack>
-      <StatusBar backgroundColor={Colors.background} />
+      <StatusBar style="dark" />
     </>
   );
 }
