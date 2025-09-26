@@ -1,6 +1,9 @@
+import { Colors } from "@/constants/theme";
 import {
   Lora_400Regular,
+  Lora_500Medium,
   Lora_500Medium_Italic,
+  Lora_700Bold,
   useFonts,
 } from "@expo-google-fonts/lora";
 import { Stack } from "expo-router";
@@ -10,6 +13,8 @@ import "react-native-reanimated";
 export default function RootLayout() {
   // !TODO handle font loading?
   const [loaded, error] = useFonts({
+    Lora_700Bold,
+    Lora_500Medium,
     Lora_400Regular,
     Lora_500Medium_Italic,
   });
@@ -34,7 +39,7 @@ export default function RootLayout() {
           options={{ presentation: "modal", title: "Modal" }}
         />
       </Stack>
-      <StatusBar backgroundColor="#481311" />
+      <StatusBar backgroundColor={Colors.background} />
     </>
   );
 }
