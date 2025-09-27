@@ -49,7 +49,18 @@ export default function RootLayout() {
         />
         <Stack.Screen
           name="modal"
-          options={{ presentation: "modal", title: "Modal" }}
+          options={{
+            presentation: "modal",
+            title: "Choose virtues",
+            headerTintColor: Colors.headerBackground,
+            headerTitleStyle: {
+              fontFamily: "Lora_700Bold",
+              fontSize: 21,
+            },
+            headerStyle: {
+              backgroundColor: Colors.background,
+            },
+          }}
         />
       </Stack>
       <StatusBar style="dark" />

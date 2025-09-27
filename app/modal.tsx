@@ -1,17 +1,44 @@
 import MyButton from "@/components/MyButton";
-import AsyncStorage from "@react-native-async-storage/async-storage";
-import { Button, StyleSheet, View } from "react-native";
+import { ThemedText } from "@/components/themed-text";
+import { Colors } from "@/constants/theme";
+import getAllVirtues from "@/utils/getAllVirtues";
+import getInitalSelectedArray from "@/utils/getInitalSelectedArray";
+import { useState } from "react";
+import { StyleSheet, TouchableOpacity, View } from "react-native";
 
 export default function ModalScreen() {
+  const virtues = getAllVirtues();
+  const [selected, setSelected] = useState<boolean[]>(
+    getInitalSelectedArray(virtues)
+  );
+
   return (
     <View style={styles.container}>
-      <Button
-        title="Save virtues"
-        onPress={async () => {
-          AsyncStorage.setItem("virtues", '["diligence", "scholarship"]');
-        }}
-      />
-      <MyButton href="../" text="Close" />
+      <View style={styles.topContainer}>
+        <ThemedText style={styles.explanation}>
+          Examine your vices and choose the opposite matching virtue
+        </ThemedText>
+        <View style={styles.pillContainer}>
+          {virtues.map((virtue, i) => (
+            <TouchableOpacity
+              key={virtue}
+              // style={[styles.pill, selected[i] && styles.pillContainer]}
+              style={[styles.pill, selected[i] && styles.pillActive]}
+              onPress={async () => {
+                const newSelected = [...selected];
+                newSelected[i] = !newSelected[i];
+                setSelected(newSelected);
+                // AsyncStorage.setItem("virtues", '["diligence", "scholarship"]');
+              }}
+            >
+              <ThemedText style={styles.pillText}>
+                {virtue[0].toUpperCase() + virtue.substring(1)}
+              </ThemedText>
+            </TouchableOpacity>
+          ))}
+        </View>
+      </View>
+      <MyButton style={{ transform: "scale(0.8)" }} href="../" text="Save" />
     </View>
   );
 }
@@ -20,11 +47,43 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: "center",
-    justifyContent: "center",
-    padding: 20,
+    justifyContent: "space-between",
+    paddingHorizontal: 10,
+    paddingVertical: 30,
+    backgroundColor: Colors.headerBackground,
   },
-  link: {
-    marginTop: 15,
-    paddingVertical: 15,
+  topContainer: {
+    marginBottom: 15,
+  },
+  explanation: {
+    textAlign: "center",
+    fontFamily: "Lora_500Medium",
+    fontSize: 22,
+    marginBottom: 25,
+    paddingHorizontal: 18,
+  },
+  pillContainer: {
+    flexDirection: "row",
+    width: "98%",
+    flexWrap: "wrap",
+    alignSelf: "center",
+  },
+  pill: {
+    marginBottom: 10,
+    marginRight: 10,
+    paddingHorizontal: 10,
+    paddingVertical: 8,
+    borderRadius: 1.5,
+    borderWidth: 1.5,
+    borderColor: Colors.pillDefault,
+  },
+  pillActive: {
+    borderColor: Colors.background,
+    backgroundColor: Colors.background,
+  },
+  pillText: {
+    color: Colors.text,
+    fontFamily: "Lora_500Medium_Italic",
+    fontSize: 19,
   },
 });

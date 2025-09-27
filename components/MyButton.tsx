@@ -3,7 +3,7 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import { Image } from "expo-image";
 import { Link, RelativePathString } from "expo-router";
 import { useEffect, useState } from "react";
-import { StyleSheet, View } from "react-native";
+import { StyleProp, StyleSheet, View, ViewStyle } from "react-native";
 import saints from "../data/saints/content.json";
 import { ThemedText } from "./themed-text";
 
@@ -12,6 +12,7 @@ type MyButtonTypes = {
   text: string;
   doesOccupyFullSpace?: boolean;
   isSuggestNew?: boolean;
+  style: StyleProp<ViewStyle>;
 };
 
 const MyButton = ({
@@ -19,6 +20,7 @@ const MyButton = ({
   text,
   doesOccupyFullSpace = false,
   isSuggestNew,
+  style,
 }: MyButtonTypes) => {
   const arrowImg = require("../assets/images/arrow-button.png");
   const [currentHref, setCurrentHref] = useState<RelativePathString>(href);
@@ -65,10 +67,11 @@ const MyButton = ({
   return (
     <Link onPress={changeHref} href={currentHref}>
       <View
-        style={{
-          ...styles.container,
-          width: doesOccupyFullSpace ? "100%" : "auto",
-        }}
+        style={[
+          styles.container,
+          { width: doesOccupyFullSpace ? "100%" : "auto" },
+          style,
+        ]}
       >
         <ThemedText style={styles.text}>{text}</ThemedText>
         <Image style={styles.image} source={arrowImg} />

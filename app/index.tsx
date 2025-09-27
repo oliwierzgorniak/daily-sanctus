@@ -53,6 +53,7 @@ export default function HomeScreen() {
               isSuggestNew
             />
             <MyButton href="./all" text="All saints" doesOccupyFullSpace />
+            <MyButton href="./modal" text="Open modal" doesOccupyFullSpace />
           </View>
         </View>
       </ImageBackground>
