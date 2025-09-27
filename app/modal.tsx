@@ -3,6 +3,8 @@ import { ThemedText } from "@/components/themed-text";
 import { Colors } from "@/constants/theme";
 import getAllVirtues from "@/utils/getAllVirtues";
 import getInitalSelectedArray from "@/utils/getInitalSelectedArray";
+import setSelectedFromStorage from "@/utils/setSelectedFromStorage";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useState } from "react";
 import { StyleSheet, TouchableOpacity, View } from "react-native";
 
@@ -11,6 +13,8 @@ export default function ModalScreen() {
   const [selected, setSelected] = useState<boolean[]>(
     getInitalSelectedArray(virtues)
   );
+
+  setSelectedFromStorage(virtues, setSelected);
 
   return (
     <View style={styles.container}>
@@ -28,17 +32,44 @@ export default function ModalScreen() {
                 const newSelected = [...selected];
                 newSelected[i] = !newSelected[i];
                 setSelected(newSelected);
-                // AsyncStorage.setItem("virtues", '["diligence", "scholarship"]');
+
+                const virtuesStorageJson = await AsyncStorage.getItem(
+                  "virtues"
+                );
+                const virtuesStorage = virtuesStorageJson
+                  ? (JSON.parse(virtuesStorageJson) as string[])
+                  : [];
+                const indexOfVirtue = virtuesStorage.findIndex(
+                  (item) => item === virtue
+                );
+                const newVirtuesStorage =
+                  indexOfVirtue === -1
+                    ? [...virtuesStorage, virtue]
+                    : [
+                        ...virtuesStorage.slice(0, indexOfVirtue),
+                        ...virtuesStorage.slice(indexOfVirtue + 1),
+                      ];
+
+                await AsyncStorage.setItem(
+                  "virtues",
+                  JSON.stringify(newVirtuesStorage)
+                );
               }}
             >
-              <ThemedText style={styles.pillText}>
+              <ThemedText
+                style={[styles.pillText, selected[i] && styles.pillTextActive]}
+              >
                 {virtue[0].toUpperCase() + virtue.substring(1)}
               </ThemedText>
             </TouchableOpacity>
           ))}
         </View>
       </View>
-      <MyButton style={{ transform: "scale(0.8)" }} href="../" text="Save" />
+      <MyButton
+        style={{ transform: "scale(0.8)", borderWidth: 0 }}
+        href="../"
+        text="Save"
+      />
     </View>
   );
 }
@@ -57,6 +88,7 @@ const styles = StyleSheet.create({
   },
   explanation: {
     textAlign: "center",
+    color: Colors.black,
     fontFamily: "Lora_500Medium",
     fontSize: 22,
     marginBottom: 25,
@@ -82,8 +114,11 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.background,
   },
   pillText: {
-    color: Colors.text,
+    color: Colors.black,
     fontFamily: "Lora_500Medium_Italic",
     fontSize: 19,
+  },
+  pillTextActive: {
+    color: Colors.text,
   },
 });

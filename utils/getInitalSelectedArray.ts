@@ -1,5 +1,5 @@
-const getInitalSelectedArray = (arr: any[]) => {
-  return arr.map(() => false);
+const getInitalSelectedArray = (virtuesArr: string[]) => {
+  return virtuesArr.map(() => false);
 };
 
 export default getInitalSelectedArray;

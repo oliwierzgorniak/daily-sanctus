@@ -12,7 +12,7 @@ type MyButtonTypes = {
   text: string;
   doesOccupyFullSpace?: boolean;
   isSuggestNew?: boolean;
-  style: StyleProp<ViewStyle>;
+  style?: StyleProp<ViewStyle>;
 };
 
 const MyButton = ({

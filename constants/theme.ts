@@ -2,6 +2,7 @@ import { Platform } from "react-native";
 
 export const Colors = {
   text: "#ffffffff",
+  black: "black",
   background: "#6E231F",
   pillDefault: "#a34428ff",
   textRed: "#800020",
