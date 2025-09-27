@@ -7,7 +7,7 @@ import { StyleProp, StyleSheet, View, ViewStyle } from "react-native";
 import saints from "../data/saints/content.json";
 import { ThemedText } from "./themed-text";
 
-type MyButtonTypes = {
+type LinkButtonTypes = {
   href: RelativePathString;
   text: string;
   doesOccupyFullSpace?: boolean;
@@ -15,13 +15,13 @@ type MyButtonTypes = {
   style?: StyleProp<ViewStyle>;
 };
 
-const MyButton = ({
+const LinkButton = ({
   href,
   text,
   doesOccupyFullSpace = false,
   isSuggestNew,
   style,
-}: MyButtonTypes) => {
+}: LinkButtonTypes) => {
   const arrowImg = require("../assets/images/arrow-button.png");
   const [currentHref, setCurrentHref] = useState<RelativePathString>(href);
 
@@ -103,4 +103,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default MyButton;
+export default LinkButton;

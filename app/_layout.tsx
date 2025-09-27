@@ -1,8 +1,10 @@
 import { Colors } from "@/constants/theme";
 import {
   Lora_400Regular,
+  Lora_400Regular_Italic,
   Lora_500Medium,
   Lora_500Medium_Italic,
+  Lora_600SemiBold,
   Lora_700Bold,
   useFonts,
 } from "@expo-google-fonts/lora";
@@ -23,6 +25,8 @@ export default function RootLayout() {
     Lora_700Bold,
     Lora_500Medium,
     Lora_400Regular,
+    Lora_400Regular_Italic,
+    Lora_600SemiBold,
     Lora_500Medium_Italic,
   });
 
@@ -31,7 +35,10 @@ export default function RootLayout() {
       <Stack>
         <Stack.Screen
           name="index"
-          options={{ headerShown: false, title: "Home" }}
+          options={{
+            headerShown: false,
+            title: "Home",
+          }}
         />
         <Stack.Screen
           name="all"
@@ -63,7 +70,7 @@ export default function RootLayout() {
           }}
         />
       </Stack>
-      <StatusBar style="dark" />
+      <StatusBar style="light" />
     </>
   );
 }

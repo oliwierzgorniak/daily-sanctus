@@ -3,7 +3,7 @@
     "id": 0,
     "name": "Martin Luther",
     "birth": "10.11.1483, Eiseblen, Germany",
-    "quote": "So when the devil throws your sins in your face and declares that you deserve death and hell, tell him this: “I admit that I deserve death and hell, what of it? For I know One who suffered and made satisfaction on my behalf. His name is Jesus Christ, Son of God, and where He is there I shall be also!”",
+    "quote": "“So when the devil throws your sins in your face and declares that you deserve death and hell, tell him this: “I admit that I deserve death and hell, what of it? For I know One who suffered and made satisfaction on my behalf. His name is Jesus Christ, Son of God, and where He is there I shall be also!”",
     "legacy": "A faithful servant of God, ignited the Protestant Reformation from his post as a German monk and theologian. Moved by the Holy Spirit, he boldly affixed his 95 Theses to the Wittenberg church door in 1517, rightly condemning the Catholic Church’s sale of indulgences and proclaiming justification by faith alone, as revealed in Scripture. Excommunicated yet steadfast, Luther translated the Bible into German, ensuring the pure Word of God reached the common people, strengthening their faith through the clear teachings of the Gospel.\n\nFrom the confessional Lutheran perspective, Luther’s legacy is a divine gift, preserving the true doctrine of salvation through Christ alone. His catechisms and confessions, like the Book of Concord, remain foundational, guiding the Church in truth. Though his writings stirred conflict and his flaws, including antisemitic remarks, are lamentable, Lutherans honor him as a reformer who restored biblical fidelity, fostering a legacy of worship, education, and unwavering trust in God’s grace.",
     "notable-works": [
       "Ninety-Five Theses (1517)",
@@ -12,14 +12,17 @@
       "Commentary on Galatians (1535)"
     ],
     "yt-embbed": "lQauUUhoIKg",
-    "remeberence": "18th of February",
+    "remembrance": {
+      "month": 2,
+      "day": 18
+    },
     "virtues": ["courage", "integrity", "diligence", "trust"]
   },
   {
     "id": 1,
     "name": "St. Augustine of Hippo",
     "birth": "13.11.354, Numidia (modern Algeria)",
-    "quote": "You have made us for yourself, O Lord, and our heart is restless until it rests in You.",
+    "quote": "“You have made us for yourself, O Lord, and our heart is restless until it rests in You.”",
     "legacy": "A pivotal figure in early Christianity, Augustine’s theological writings shaped Western Christian thought. His journey from a life of sin to conversion, detailed in *Confessions*, inspires believers with its raw honesty and trust in God’s grace. As Bishop of Hippo, he defended orthodoxy against heresies like Manichaeism and Pelagianism, emphasizing original sin and divine grace. His works, like *City of God*, provided a foundation for Christian philosophy, influencing Protestant reformers. Protestants admire his focus on Scripture and grace, viewing him as a bridge between early Church and Reformation theology.",
     "notable-works": [
       "Confessions (397-400)",
@@ -28,14 +31,14 @@
       "On Christian Doctrine (397-426)"
     ],
     "yt-embbed": "32bFPD36M8g",
-    "remeberence": "28th of August",
+    "remembrance": { "month": 8, "day": 28 },
     "virtues": ["wisdom", "humility", "repentance", "devotion"]
   },
   {
     "id": 2,
     "name": "St. Athanasius of Alexandria",
     "birth": "c. 296-298, Alexandria, Egypt",
-    "quote": "He was made man that we might be made divine.",
+    "quote": "“He was made man that we might be made divine.”",
     "legacy": "Known as the 'Father of Orthodoxy,' Athanasius fiercely defended the divinity of Christ against Arianism. As Bishop of Alexandria, he endured multiple exiles for his unwavering stance at the Council of Nicaea (325), which affirmed the Trinity. His writings, like *On the Incarnation*, articulate the necessity of Christ’s divinity for salvation, resonating with Protestant emphasis on Christ-centered faith. His courage in the face of persecution and commitment to biblical truth make him a revered figure in Protestant theology.",
     "notable-works": [
       "On the Incarnation (c. 318)",
@@ -44,14 +47,17 @@
       "Discourses Against the Arians (c. 356-360)"
     ],
     "yt-embbed": "fGQeMKIJDu0",
-    "remeberence": "2nd of May",
+    "remembrance": {
+      "month": 5,
+      "day": 2
+    },
     "virtues": ["courage", "faith", "steadfastness", "clarity"]
   },
   {
     "id": 3,
     "name": "St. Ambrose of Milan",
     "birth": "c. 340, Trier, Germany",
-    "quote": "No duty is more urgent than that of returning thanks.",
+    "quote": "“No duty is more urgent than that of returning thanks.”",
     "legacy": "As Bishop of Milan, Ambrose was a fearless advocate for justice, confronting emperors like Theodosius I to uphold Christian ethics. His eloquent preaching and hymns enriched worship, influencing Protestant liturgical traditions. He mentored Augustine, aiding his conversion, and defended orthodoxy against Arianism. Protestants admire his commitment to biblical authority and moral courage, seeing him as a model of standing firm in faith while serving the Church and society.",
     "notable-works": [
       "On the Duties of the Clergy (c. 391)",
@@ -60,14 +66,17 @@
       "On the Mysteries (c. 387)"
     ],
     "yt-embbed": "p3M80rbfM3E",
-    "remeberence": "7th of December",
+    "remembrance": {
+      "month": 12,
+      "day": 7
+    },
     "virtues": ["justice", "eloquence", "leadership", "mentorship"]
   },
   {
     "id": 4,
     "name": "St. Jerome",
     "birth": "c. 347, Dalmatia (modern Croatia)",
-    "quote": "Ignorance of Scripture is ignorance of Christ.",
+    "quote": "“Ignorance of Scripture is ignorance of Christ.”",
     "legacy": "A renowned scholar and translator, Jerome dedicated his life to biblical studies. Commissioned by Pope Damasus, he produced the Vulgate, the Latin Bible translation that became standard for centuries, making Scripture accessible. His commentaries and ascetic lifestyle in Bethlehem emphasized deep engagement with God's Word. Protestants value his scholarly diligence and commitment to scriptural accuracy, seeing him as a key figure in preserving and interpreting the Bible for future generations.",
     "notable-works": [
       "Vulgate Bible Translation (c. 405)",
@@ -76,14 +85,17 @@
       "Against Jovinian (393)"
     ],
     "yt-embbed": "6q0K-YiraTw",
-    "remeberence": "30th of September",
+    "remembrance": {
+      "month": 9,
+      "day": 30
+    },
     "virtues": ["diligence", "scholarship", "asceticism", "zeal"]
   },
   {
     "id": 5,
     "name": "St. Ignatius of Antioch",
     "birth": "c. 50, Syria",
-    "quote": "I am God's wheat, and I am ground by the teeth of wild beasts that I may be found pure bread.",
+    "quote": "“I am God's wheat, and I am ground by the teeth of wild beasts that I may be found pure bread.”",
     "legacy": "An early Church Father and bishop, Ignatius wrote seven letters en route to martyrdom in Rome, emphasizing church unity, the Eucharist, and episcopal structure. His writings provide a glimpse into apostolic-era Christianity, stressing faith in Christ amid persecution. Protestants respect his early testimony to core doctrines and his courageous embrace of martyrdom, highlighting personal devotion to Jesus.",
     "notable-works": [
       "Letter to the Ephesians (c. 110)",
@@ -92,14 +104,17 @@
       "Letter to Polycarp (c. 110)"
     ],
     "yt-embbed": "0JiIgpmjnQg",
-    "remeberence": "17th of October",
+    "remembrance": {
+      "month": 10,
+      "day": 17
+    },
     "virtues": ["faith", "courage", "devotion", "unity"]
   },
   {
     "id": 6,
     "name": "St. Basil the Great",
     "birth": "330, Cappadocia (modern Turkey)",
-    "quote": "A tree is known by its fruit; a man by his deeds. A good deed is never lost.",
+    "quote": "“A tree is known by its fruit; a man by his deeds. A good deed is never lost.”",
     "legacy": "Bishop of Caesarea and defender against Arianism, Basil established monastic communities and charitable institutions like hospitals for the poor. His theological works on the Holy Spirit and creation homilies advanced Trinitarian doctrine. Protestants admire his practical charity, biblical exegesis, and emphasis on living faith through service, influencing early Christian social ethics.",
     "notable-works": [
       "On the Holy Spirit (375)",
@@ -108,14 +123,17 @@
       "Ascetical Works (various)"
     ],
     "yt-embbed": "8t4mQjaQVN4",
-    "remeberence": "2nd of January",
+    "remembrance": {
+      "month": 1,
+      "day": 2
+    },
     "virtues": ["charity", "theology", "leadership", "asceticism"]
   },
   {
     "id": 7,
     "name": "St. Clement of Rome",
     "birth": "c. 35, Rome, Italy",
-    "quote": "Let us cleave then to the innocent and righteous, since these are the elect of God.",
+    "quote": "“Let us cleave then to the innocent and righteous, since these are the elect of God.”",
     "legacy": "One of the earliest popes and Apostolic Fathers, Clement's letter to the Corinthians promoted harmony and order in the Church, drawing on Scripture to resolve disputes. His work bridges the apostolic age and later Christianity. Protestants appreciate his call for unity based on biblical principles and humble leadership, viewing him as an example of early ecclesial guidance.",
     "notable-works": [
       "First Epistle to the Corinthians (c. 96)",
@@ -124,14 +142,17 @@
       "Clementine Literature (pseudo)"
     ],
     "yt-embbed": "5RraMT-tF3c",
-    "remeberence": "23rd of November",
+    "remembrance": {
+      "month": 11,
+      "day": 23
+    },
     "virtues": ["unity", "humility", "leadership", "piety"]
   },
   {
     "id": 8,
     "name": "St. Gregory the Great",
     "birth": "c. 540, Rome, Italy",
-    "quote": "The proof of love is in the works. Where love exists, it works great things.",
+    "quote": "“The proof of love is in the works. Where love exists, it works great things.”",
     "legacy": "As pope, Gregory reformed the Church, promoted missions (e.g., to England), and authored works on pastoral care and morals. He emphasized servant leadership and Gregorian chant in liturgy. Protestants honor his administrative wisdom, focus on Scripture in preaching, and humble service, seeing him as a model of faithful stewardship amid societal challenges.",
     "notable-works": [
       "Pastoral Care (590)",
@@ -140,7 +161,10 @@
       "Homilies on the Gospels (various)"
     ],
     "yt-embbed": "UyFfo7HJagU",
-    "remeberence": "3rd of September",
+    "remembrance": {
+      "month": 9,
+      "day": 3
+    },
     "virtues": ["humility", "wisdom", "service", "reform"]
   }
 ]

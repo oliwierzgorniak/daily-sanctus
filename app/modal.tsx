@@ -1,4 +1,4 @@
-import MyButton from "@/components/MyButton";
+import MyButton from "@/components/LinkButton";
 import { ThemedText } from "@/components/themed-text";
 import { Colors } from "@/constants/theme";
 import getAllVirtues from "@/utils/getAllVirtues";
@@ -26,7 +26,6 @@ export default function ModalScreen() {
           {virtues.map((virtue, i) => (
             <TouchableOpacity
               key={virtue}
-              // style={[styles.pill, selected[i] && styles.pillContainer]}
               style={[styles.pill, selected[i] && styles.pillActive]}
               onPress={async () => {
                 const newSelected = [...selected];

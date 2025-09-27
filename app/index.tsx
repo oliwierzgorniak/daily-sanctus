@@ -1,4 +1,4 @@
-import MyButton from "@/components/MyButton";
+import LinkButton from "@/components/LinkButton";
 import { ThemedText } from "@/components/themed-text";
 import { Colors } from "@/constants/theme";
 import AsyncStorage from "@react-native-async-storage/async-storage";
@@ -45,15 +45,14 @@ export default function HomeScreen() {
               marginBottom: insets.bottom + 35,
             }}
           >
-            {/* <MyButton href="./all" text="Your saint" doesOccupyFullSpace /> */}
-            <MyButton
+            <LinkButton
               href={"./saints/0"}
               text="Suggest new"
               doesOccupyFullSpace
               isSuggestNew
             />
-            <MyButton href="./all" text="All saints" doesOccupyFullSpace />
-            <MyButton href="./modal" text="Open modal" doesOccupyFullSpace />
+            <LinkButton href="./all" text="All saints" doesOccupyFullSpace />
+            <LinkButton href="./modal" text="Open modal" doesOccupyFullSpace />
           </View>
         </View>
       </ImageBackground>
