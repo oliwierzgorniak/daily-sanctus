@@ -1,15 +1,15 @@
 import ActionButton from "@/components/ActionButton";
-import ParallaxScrollView from "@/components/parallax-scroll-view";
-import { ThemedText } from "@/components/themed-text";
+import ParallaxScrollView from "@/components/ParallaxScrollView";
+import { ThemedText } from "@/components/ThemedText";
 import addEvent from "@/utils/calendar/addEvent";
 import getCalendarId from "@/utils/calendar/getCalendarId";
-import getImageId from "@/utils/getImageId";
+import getImageId from "@/utils/imageFetchers/getIconImage";
 import shareLocalFile from "@/utils/shareLocalFile";
 import { Image } from "expo-image";
 import { useLocalSearchParams } from "expo-router";
 import { StyleSheet, View } from "react-native";
 import YoutubePlayer from "react-native-youtube-iframe";
-import saints from "../../data/saints/content.json";
+import saints from "../../data/saints.json";
 
 export default function SaintScreen() {
   const searchParams = useLocalSearchParams();

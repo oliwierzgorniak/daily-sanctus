@@ -4,7 +4,7 @@ import { Image } from "expo-image";
 import { Link, RelativePathString } from "expo-router";
 import { useEffect, useState } from "react";
 import { StyleProp, StyleSheet, View, ViewStyle } from "react-native";
-import { ThemedText } from "./themed-text";
+import { ThemedText } from "./ThemedText";
 
 type LinkButtonTypes = {
   href: RelativePathString;

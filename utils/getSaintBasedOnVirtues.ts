@@ -1,5 +1,5 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import saints from "../data/saints/content.json";
+import saints from "../data/saints.json";
 import getRandomSaintAndSaveFromArr from "./getRandomSaintAndSaveFromArr";
 import getRandomSaintId from "./getRandomSaintId";
 

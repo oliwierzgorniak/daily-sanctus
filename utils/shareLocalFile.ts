@@ -1,6 +1,6 @@
 import { Asset } from "expo-asset";
 import * as Sharing from "expo-sharing";
-import getShareable from "./getShareable";
+import getShareable from "./imageFetchers/getShareableImage";
 
 const shareLocalFile = async (saintId: number) => {
   const localFile = getShareable(saintId);

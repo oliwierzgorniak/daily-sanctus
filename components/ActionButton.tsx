@@ -7,7 +7,7 @@ import {
   View,
   ViewStyle,
 } from "react-native";
-import { ThemedText } from "./themed-text";
+import { ThemedText } from "./ThemedText";
 
 type ActionButtonTypes = {
   text: string;

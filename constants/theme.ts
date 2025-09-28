@@ -8,10 +8,6 @@ export const Colors = {
   textRed: "#800020",
   headerBackground: "#CBA93A",
   yellowDarker: "#b69835ff",
-  tint: "#0a171bff",
-  icon: "#687076",
-  tabIconDefault: "#687076",
-  tabIconSelected: "#0a7ea4",
 };
 
 export const Fonts = Platform.select({

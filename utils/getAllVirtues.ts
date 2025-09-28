@@ -1,5 +1,5 @@
 // https://joelolawanle.com/blog/how-to-create-an-array-of-unique-values-in-javascript
-import saints from "../data/saints/content.json";
+import saints from "../data/saints.json";
 
 const getAllVirtues = () => {
   const allVirtues: string[] = [];

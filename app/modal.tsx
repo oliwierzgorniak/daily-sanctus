@@ -1,5 +1,5 @@
 import MyButton from "@/components/LinkButton";
-import { ThemedText } from "@/components/themed-text";
+import { ThemedText } from "@/components/ThemedText";
 import { Colors } from "@/constants/theme";
 import getAllVirtues from "@/utils/getAllVirtues";
 import getInitalSelectedArray from "@/utils/getInitalSelectedArray";
