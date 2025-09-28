@@ -4,6 +4,7 @@ import { ThemedText } from "@/components/themed-text";
 import addEvent from "@/utils/calendar/addEvent";
 import getCalendarId from "@/utils/calendar/getCalendarId";
 import getImageId from "@/utils/getImageId";
+import shareLocalFile from "@/utils/shareLocalFile";
 import { Image } from "expo-image";
 import { useLocalSearchParams } from "expo-router";
 import { StyleSheet, View } from "react-native";
@@ -79,7 +80,12 @@ export default function SaintScreen() {
               }
             }}
           />
-          {/* <ActionButton text="Share saint" /> */}
+          <ActionButton
+            text="Share saint"
+            onPress={() => {
+              shareLocalFile(saintId);
+            }}
+          />
         </View>
       </View>
     </ParallaxScrollView>
