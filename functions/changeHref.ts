@@ -1,5 +1,6 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { RelativePathString } from "expo-router";
+import { Alert } from "react-native";
 import getRandomSaintId from "./getRandomSaintId";
 import getSaintBasedOnVirtues from "./getSaintBasedOnVirtues";
 
@@ -10,19 +11,18 @@ const changeHref = async (
   if (isSuggestNew) {
     try {
       const virtuesJson = await AsyncStorage.getItem("virtues");
+      let saintId: number;
       if (virtuesJson === null) {
-        const saintId = getRandomSaintId();
-        const newHref = ("./saints/" + saintId) as RelativePathString;
-        setCurrentHref(newHref);
+        saintId = getRandomSaintId();
       } else {
         const virtues = JSON.parse(virtuesJson) as string[];
-
-        const saintId = await getSaintBasedOnVirtues(virtues);
-        const newHref = ("./saints/" + saintId) as RelativePathString;
-        setCurrentHref(newHref);
+        saintId = await getSaintBasedOnVirtues(virtues);
       }
+
+      const newHref = ("./saints/" + saintId) as RelativePathString;
+      setCurrentHref(newHref);
     } catch (e) {
-      // !TODO handle error
+      Alert.alert("There was an error while trying to suggest a saint");
       console.error(e);
     }
   }

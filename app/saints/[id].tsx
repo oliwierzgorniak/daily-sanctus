@@ -1,23 +1,45 @@
 import ActionButton from "@/components/ActionButton";
 import ParallaxScrollView from "@/components/ParallaxScrollView";
 import { ThemedText } from "@/components/ThemedText";
-import addEvent from "@/utils/calendar/addEvent";
-import getCalendarId from "@/utils/calendar/getCalendarId";
-import getImageId from "@/utils/imageFetchers/getIconImage";
-import shareLocalFile from "@/utils/shareLocalFile";
+import addEvent from "@/functions/calendar/addEvent";
+import getCalendarId from "@/functions/calendar/getCalendarId";
+import getImageId from "@/functions/imageFetchers/getIconImage";
+import shareLocalFile from "@/functions/shareLocalFile";
 import { Image } from "expo-image";
 import { useLocalSearchParams } from "expo-router";
-import { StyleSheet, View } from "react-native";
+import { useEffect, useRef, useState } from "react";
+import { Alert, Dimensions, StyleSheet, View } from "react-native";
 import YoutubePlayer from "react-native-youtube-iframe";
 import saints from "../../data/saints.json";
+
+const windowWidth = Dimensions.get("window").width;
+const ICON_WIDTH = 328;
+const ICON_HEIGHT = 442;
+const headerHeight = (windowWidth * ICON_HEIGHT) / ICON_WIDTH;
 
 export default function SaintScreen() {
   const searchParams = useLocalSearchParams();
   const saintId = +searchParams.id;
   const saint = saints[saintId];
 
+  const viewRef = useRef(null);
+  const [width, setWidth] = useState(0);
+
+  const measureView = () => {
+    if (viewRef.current)
+      // @ts-ignore
+      viewRef.current.measure((_x, _y, width) => {
+        setWidth(width);
+      });
+  };
+
+  useEffect(() => {
+    measureView();
+  }, []);
+
   return (
     <ParallaxScrollView
+      headerHeight={headerHeight}
       headerImage={
         <Image
           style={{
@@ -46,9 +68,11 @@ export default function SaintScreen() {
             Legacy
           </ThemedText>
           <ThemedText style={styles.legacyText}>{saint.legacy}</ThemedText>
-          {/* !TODO make height responsive */}
-          <View style={styles.ytEmbedContainer}>
-            <YoutubePlayer height={190} videoId={saint["yt-embbed"]} />
+          <View style={styles.ytEmbedContainer} ref={viewRef}>
+            <YoutubePlayer
+              height={(width * 673) / 1196}
+              videoId={saint["yt-embbed"]}
+            />
           </View>
         </View>
         <View>
@@ -67,9 +91,8 @@ export default function SaintScreen() {
             text="Add to calendar"
             onPress={async () => {
               const calendarId = await getCalendarId();
-              // !TODO handle no calendarId
               if (calendarId) {
-                addEvent(calendarId, {
+                await addEvent(calendarId, {
                   name: saint.name,
                   legacy: saint.legacy,
                   remembrance: {
@@ -77,6 +100,9 @@ export default function SaintScreen() {
                     day: saint.remembrance.day,
                   },
                 });
+                Alert.alert("Remembrance day added");
+              } else {
+                Alert.alert("Something went wrong");
               }
             }}
           />
@@ -116,7 +142,7 @@ const styles = StyleSheet.create({
     marginTop: 20,
     width: "95%",
     margin: "auto",
-    marginBottom: 5,
+    marginBottom: 10,
   },
   buttonsContainer: {
     gap: 16,

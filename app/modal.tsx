@@ -1,10 +1,10 @@
 import MyButton from "@/components/LinkButton";
 import { ThemedText } from "@/components/ThemedText";
 import { Colors } from "@/constants/theme";
-import getAllVirtues from "@/utils/getAllVirtues";
-import getInitalSelectedArray from "@/utils/getInitalSelectedArray";
-import setSelectedFromStorage from "@/utils/setSelectedFromStorage";
-import AsyncStorage from "@react-native-async-storage/async-storage";
+import getAllVirtues from "@/functions/getAllVirtues";
+import getInitalSelectedArray from "@/functions/getInitalSelectedArray";
+import handleModalVirtueTouch from "@/functions/handleModalVirtueTouch";
+import setSelectedFromStorage from "@/functions/setSelectedFromStorage";
 import { useState } from "react";
 import { StyleSheet, TouchableOpacity, View } from "react-native";
 
@@ -27,36 +27,16 @@ export default function ModalScreen() {
             <TouchableOpacity
               key={virtue}
               style={[styles.pill, selected[i] && styles.pillActive]}
-              onPress={async () => {
-                const newSelected = [...selected];
-                newSelected[i] = !newSelected[i];
-                setSelected(newSelected);
-
-                const virtuesStorageJson = await AsyncStorage.getItem(
-                  "virtues"
-                );
-                const virtuesStorage = virtuesStorageJson
-                  ? (JSON.parse(virtuesStorageJson) as string[])
-                  : [];
-                const indexOfVirtue = virtuesStorage.findIndex(
-                  (item) => item === virtue
-                );
-                const newVirtuesStorage =
-                  indexOfVirtue === -1
-                    ? [...virtuesStorage, virtue]
-                    : [
-                        ...virtuesStorage.slice(0, indexOfVirtue),
-                        ...virtuesStorage.slice(indexOfVirtue + 1),
-                      ];
-
-                await AsyncStorage.setItem(
-                  "virtues",
-                  JSON.stringify(newVirtuesStorage)
-                );
-              }}
+              onPress={() =>
+                handleModalVirtueTouch(selected, i, setSelected, virtue)
+              }
             >
               <ThemedText
-                style={[styles.pillText, selected[i] && styles.pillTextActive]}
+                style={
+                  selected[i]
+                    ? { ...styles.pillText, ...styles.pillTextActive }
+                    : styles.pillText
+                }
               >
                 {virtue[0].toUpperCase() + virtue.substring(1)}
               </ThemedText>

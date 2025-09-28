@@ -1,12 +1,12 @@
 import { Colors } from "@/constants/theme";
-import getImageId from "@/utils/imageFetchers/getIconImage";
+import getImageId from "@/functions/imageFetchers/getIconImage";
 import { FlashList } from "@shopify/flash-list";
 import { Image } from "expo-image";
 import { Link, RelativePathString } from "expo-router";
 import { ScrollView, StyleSheet, View } from "react-native";
 import saints from "../data/saints.json";
 
-export default function HomeScreen() {
+export default function AllScreen() {
   return (
     <ScrollView style={styles.container}>
       <FlashList

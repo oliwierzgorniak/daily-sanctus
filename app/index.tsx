@@ -51,12 +51,12 @@ export default function HomeScreen() {
               doesOccupyFullSpace
               isSuggestNew
             />
-            <LinkButton href="./all" text="All saints" doesOccupyFullSpace />
             <LinkButton
               href="./modal"
               text="Chosen virtues"
               doesOccupyFullSpace
             />
+            <LinkButton href="./all" text="All saints" doesOccupyFullSpace />
           </View>
         </View>
       </ImageBackground>

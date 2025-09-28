@@ -20,8 +20,7 @@ const sharedOptionsHeader = {
 };
 
 export default function RootLayout() {
-  // !TODO handle font loading?
-  const [loaded, error] = useFonts({
+  useFonts({
     Lora_700Bold,
     Lora_500Medium,
     Lora_400Regular,

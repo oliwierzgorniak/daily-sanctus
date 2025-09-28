@@ -1,5 +1,5 @@
 import { Colors } from "@/constants/theme";
-import changeHref from "@/utils/changeHref";
+import changeHref from "@/functions/changeHref";
 import { Image } from "expo-image";
 import { Link, RelativePathString } from "expo-router";
 import { useEffect, useState } from "react";
