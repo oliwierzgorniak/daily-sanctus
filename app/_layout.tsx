@@ -9,7 +9,10 @@ import {
   useFonts,
 } from "@expo-google-fonts/lora";
 import { Stack } from "expo-router";
+import * as SplashScreen from "expo-splash-screen";
 import { StatusBar } from "expo-status-bar";
+import { useCallback, useEffect, useState } from "react";
+import { View } from "react-native";
 import "react-native-reanimated";
 
 const sharedOptionsHeader = {
@@ -20,7 +23,7 @@ const sharedOptionsHeader = {
 };
 
 export default function RootLayout() {
-  useFonts({
+  const [fontsLoaded, error] = useFonts({
     Lora_700Bold,
     Lora_500Medium,
     Lora_400Regular,
@@ -29,8 +32,26 @@ export default function RootLayout() {
     Lora_500Medium_Italic,
   });
 
+  const [skipLoading, setSkipLoading] = useState(false);
+  useEffect(() => {
+    setTimeout(() => setSkipLoading(true), 4000);
+  });
+  //gemini.google.com/app/7b863b0ba1ef8980
+  // This function is called once the fonts
+
+  const onLayoutRootView = useCallback(async () => {
+    if (fontsLoaded || error) {
+      setSkipLoading(true);
+      await SplashScreen.hideAsync();
+    }
+  }, [fontsLoaded, error]); // Re-run when these values change
+
+  if (!skipLoading && !fontsLoaded && !error) {
+    return null;
+  }
+
   return (
-    <>
+    <View onLayout={onLayoutRootView} style={{ flex: 1 }}>
       <Stack>
         <Stack.Screen
           name="index"
@@ -70,6 +91,6 @@ export default function RootLayout() {
         />
       </Stack>
       <StatusBar style="light" />
-    </>
+    </View>
   );
 }
