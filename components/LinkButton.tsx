@@ -1,10 +1,9 @@
 import { Colors } from "@/constants/theme";
-import AsyncStorage from "@react-native-async-storage/async-storage";
+import changeHref from "@/utils/changeHref";
 import { Image } from "expo-image";
 import { Link, RelativePathString } from "expo-router";
 import { useEffect, useState } from "react";
 import { StyleProp, StyleSheet, View, ViewStyle } from "react-native";
-import saints from "../data/saints/content.json";
 import { ThemedText } from "./themed-text";
 
 type LinkButtonTypes = {
@@ -25,47 +24,15 @@ const LinkButton = ({
   const arrowImg = require("../assets/images/arrow-button.png");
   const [currentHref, setCurrentHref] = useState<RelativePathString>(href);
 
-  const changeHref = async () => {
-    if (isSuggestNew) {
-      try {
-        const virtuesJson = await AsyncStorage.getItem("virtues");
-        if (virtuesJson === null) {
-          const saintId = Math.floor(Math.random() * 8);
-          const newHref = ("./saints/" + saintId) as RelativePathString;
-          setCurrentHref(newHref);
-        } else {
-          const virtues = JSON.parse(virtuesJson) as string[];
-          let stopAlgorithm = false;
-
-          for (let virtue of virtues) {
-            for (let saint of saints) {
-              for (let saintsVirtue of saint.virtues) {
-                if (saintsVirtue === virtue) {
-                  const newHref = ("./saints/" +
-                    saint.id) as RelativePathString;
-                  setCurrentHref(newHref);
-                  stopAlgorithm = true;
-                }
-                if (stopAlgorithm) break;
-              }
-              if (stopAlgorithm) break;
-            }
-            if (stopAlgorithm) break;
-          }
-        }
-      } catch (e) {
-        // !TODO handle error
-        console.error(e);
-      }
-    }
-  };
-
   useEffect(() => {
-    changeHref();
+    changeHref(isSuggestNew, setCurrentHref);
   }, []);
 
   return (
-    <Link onPress={changeHref} href={currentHref}>
+    <Link
+      onPress={() => changeHref(isSuggestNew, setCurrentHref)}
+      href={currentHref}
+    >
       <View
         style={[
           styles.container,

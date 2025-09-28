@@ -23,7 +23,7 @@ export default function HomeScreen() {
       }
     }
     handleModal();
-  }, []);
+  }, [router]);
 
   return (
     <SafeAreaProvider>
@@ -52,7 +52,11 @@ export default function HomeScreen() {
               isSuggestNew
             />
             <LinkButton href="./all" text="All saints" doesOccupyFullSpace />
-            <LinkButton href="./modal" text="Open modal" doesOccupyFullSpace />
+            <LinkButton
+              href="./modal"
+              text="Chosen virtues"
+              doesOccupyFullSpace
+            />
           </View>
         </View>
       </ImageBackground>
